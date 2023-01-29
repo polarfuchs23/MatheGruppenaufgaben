@@ -1,0 +1,127 @@
+\documentclass[11pt, a4paper]{article}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngermanb]{babel}
+\usepackage{amsmath,amscd,amssymb}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage[headsep=.5cm,headheight=2cm,left=2.5cm,right=2.5cm,top=3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{ stmaryrd }
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Übung \aufgabennr}
+\cfoot{\thepage}
+
+\parindent0cm
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Bis hier muss nichts verändert werden
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%% Hier bitte die X ersetzen
+
+\newcommand{\aufgabennr}{11}
+
+
+\begin{document}
+\begin{enumerate}
+    \setcounter{enumi}{40}
+    \item {\bfseries Aufgabe:\\}
+    Zeigen sie folgende Aussagen direkt:\\
+    \begin{enumerate}
+        \item Seien $a, b \in \mathbb{R}$ mit $0 < a, 0 < b$. Z.z.: $\frac{a}{b} + \frac{b}{a} \geq 2$\\
+        \item Zeigen Sie, dass sich jede ungerade Primzahl als Differenz zweier Quadratzahlen darstellen
+        lässt.\\
+    \end{enumerate}
+    {\bfseries Lösung:\\}
+    \begin{enumerate}
+        \item \dots
+        \item Sei $x$ eine beliebige ungerade Primzahl.
+        \begin{align*}
+            \Rightarrow& x = 1 \cdot x &&|~\text{x ist ungerade}\\
+            \Rightarrow& \exists a \in \mathbb{N}: x = 1 \cdot (2 \cdot a + 1) &&|~\text{Sei b = a + 1}\\
+            \Rightarrow& \exists a, b \in \mathbb{N}: x = 1 \cdot (a + b) &&|~\text{da b = a + 1}\\
+            \Rightarrow& \exists a, b \in \mathbb{N}: x = (b - a) \cdot (a + b) &&|~\text{Binomische Formel}\\
+            \Rightarrow& \exists a, b \in \mathbb{N}: x = a^2 - b^2 &&\square\\
+        \end{align*}
+    \end{enumerate}
+    \item {\bfseries Aufgabe:\\}
+    Beweisen Sie die folgenden Sätze indirekt (mittels Widerspruch):\\
+    \begin{enumerate}
+        \item Wenn n eine natürliche Zahl ist, dann ist $n + (n + 1) + (n + 2)$ durch $3$ teilbar.\\
+        \item $\forall a, b \in \mathbb{R}^+: \sqrt[2]{ab} \leq \frac{a+b}{2}$\\
+    \end{enumerate}
+    {\bfseries Lösung:\\}
+    \begin{enumerate}[(a)]
+        \item \dots\\
+        \item Annahme: $\sqrt[2]{ab} > \frac{a+b}{2}$\\
+        \begin{align*}
+            \Rightarrow& ab > (\frac{a+b}{2})^2 &&|~\text{Binomische Formel}\\
+            \Rightarrow& ab > \frac{a^2+2\cdot ab+b^2}{4} &&|~\text{Bruch auflösen}\\
+            \Rightarrow& ab > \frac{a^2 + b^2}{4} + \frac{ab}{2} &&|~ab = 2\cdot \frac{ab}{2}\\
+            \Rightarrow& \frac{ab}{2} + \frac{ab}{2} > \frac{a^2 + b^2}{4} + \frac{ab}{2} &&|~-\frac{ab}{2}\\
+            \Rightarrow& \frac{2ab}{4} > \frac{a^2 + b^2}{4} &&|~\cdot 4\\
+            \Rightarrow& 2ab > a^2 + b^2
+        \end{align*}
+        Fall 1: $a=b$\\
+        \begin{align*}
+            &2ab > a^2 + b^2 &&|~\text{Fallbedingung}\\
+            \Rightarrow& 2a\cdot a > a^2 + a^2\\
+            \Rightarrow& 2a^2 > 2a^2 && \lightning \\
+        \end{align*}
+        Fall 2: Da $a$ und $b$ vertauschbar sind, sind die Fälle $a > b$ und $b > a$ identisch. Es sei $a > b$:
+        \begin{align*}
+            &2ab > a^2 + b^2 &&\\
+            \Rightarrow& 2ab > ab + a \cdot (a-b) + ab - b \cdot (a-b) &&|~\text{Distributivg.}\\
+            \Rightarrow& 2ab > 2ab + a \cdot (a-b) - b \cdot (a-b) &&|~\text{Distributivg.}\\
+            \Rightarrow& 2ab > 2ab + (a-b) \cdot (a-b) &&\lightning \text{, da }a>b\text{ und daher }(a-b)>0\\
+        \end{align*}
+        $\Rightarrow$ Da die Annahme widerlegt wurde, gilt die Aussage.\\
+    \end{enumerate}
+    \item {\bfseries Aufgabe:\\}
+    Beweisen Sie mittels Kontraposition:\\
+    \begin{enumerate}
+        \item Sei $x \in \mathbb{Z}$: Wenn $x^2 - 6x + 5$ gerade ist, dann ist $x$ ungerade.\\
+        \item Seien $f : A \mapsto B, g : B \mapsto C$ Abbildungen. Wenn $g \circ f$ bijektiv ist, dann ist $f$ injektiv und $g$
+        surjektiv.\\
+    \end{enumerate}
+    {\bfseries Lösung:\\}
+    \begin{enumerate}[(a)]
+        \item \dots\\
+        \item Es wird die Kontraposition zur Aussage, Wenn $f$ nicht injektiv oder $g$
+        nicht surjektiv ist, dann ist $g \circ f$ nicht bijektiv.\\
+        $f$ ist nicht injektiv.\\
+        \begin{align*}
+            \Rightarrow& \exists a_1, a_2 \in A \exists b_1 \in B: f(a_1) = b_1 = f(a_2) &&|~g\text{ auf }b_1 \text{ anwenden}\\
+            \Rightarrow& \exists a_1, a_2 \in A \exists b_1 \in B \exists c_1 \in C: f(a_1) = b_1 = f(a_2) \land g(b_1) = c_1 &&|~g \circ f \text{ anwenden}\\
+            \Rightarrow& \exists a_1, a_2 \in A \exists c_1 \in C: g \circ f(a_1) = c_1 = f(a_2) &&\\
+            \Rightarrow& g \circ f\text{ ist nicht injektiv und daher nicht bijektiv.}
+        \end{align*}
+        $g$ ist nicht surjektiv.\\
+        \begin{align*}
+            \Rightarrow& \exists c_1 \in C \nexists b_1 \in B: g(b_1) = c_1 &&|~f \text{anwenden}\\
+            \Rightarrow& \nexists a_1 \nexists b_1 \exists c_1: f(a_1) = b_1 \land g(b_1) = c_1 &&|~g \circ f \text{anwenden}\\
+            \Rightarrow& \nexists a_1 \exists c_1: g \circ f(a_1) = c_1 \\
+            \Rightarrow& g \circ f\text{ ist nicht surjektiv und daher nicht bijektiv.}
+        \end{align*}
+        $\Rightarrow$ Da die Kontraposition zur Aussage gilt, gilt auch die Aussage.\\
+    \end{enumerate}
+    \item {\bfseries Aufgabe:\\}
+    Sei $M = {1, 2, 3, \dots, 2n}$ und $A \subseteq M$ mit $\#A = n + 1$. Zeigen Sie, dass gilt:\\
+    $\exists a, b \in A: a \neq b \land a|b$\\
+    {\bfseries Lösung:\\}
+    Da es unter den natürlichen Zahlen bis $2n$ $n$ gerade und $n$ ungerade Zahlen gibt und $1$ nicht in $A$ genommen werden kann, da sie alle anderen
+    natürlichen Zahlen teilt, muss es mindestens zwei gerade Zahlen in $A$ geben. Diese haben entweder nur gerade Faktoren oder einen geraden und einen
+    ungeraden Faktor. Zahlen die nur gerade Faktoren haben sind zweier Potenzen. Da sich alle zweier Potenzen gegenseitig teilen, können nicht zwei Zahlen
+    aus ausschließlich geraden Zahlen gewählt werden. Es muss eine gerade Zahl mit einem ungeradem Teiler gewählt werden. Dieser Teiler kann dann nicht mehr
+    in $A$ sein. Es muss also mindestens eine gerade Zahl mehr gewählt werden. Für diese Zahl gelten die selben Regeln wie zuvor. Zusätlich dürfen die
+    bereits gestrichenen ungeraden Zahlen kein Teiler der Zahl sein. Die neue gerade Zahl muss also einen noch nicht gestrichenen ungeraden Faktor haben.
+    Auch dieser muss dann gestrichen werden und wie zuvor immer weiter durch eine gerade Zahl ersetzt werden. Sind so alle ungeraden Zahlen bis $n$ gestrichen
+    worden, kann keine gerade Zahl mehr gewählt werden, die nur nicht gestrichene Teiler hat, da die Zahl kleiner oder gleich $2n$ sein muss, $n$ also der gößte
+    ungerade Teiler sein kann. Es muss also eine Zahl gewählt werden, die einen Teiler hat, der bereits in $A$ ist. Es lässt sich daher keine Menge bilden
+    für die die Aussage wahr ist. 
+\end{enumerate}
+\end{document}
